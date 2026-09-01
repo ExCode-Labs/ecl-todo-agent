@@ -1,0 +1,21 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.13.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.17.1
+    hooks:
+      - id: mypy
+
+  - repo: local
+    hooks:
+      - id: commitizen
+        name: commitizen
+        entry: uv run cz check --commit-msg-file
+        language: system
+        stages: [commit-msg]
+        pass_filenames: true
