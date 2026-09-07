@@ -128,7 +128,28 @@ cd todo-agent
 
 ---
 
-### 2. Install the Python environment
+### 2. Create the virtual environment
+
+```bash
+uv venv --python 3.13
+```
+
+Activate the .venv virtual environment in Git Bash
+
+```bash
+source .venv/Scripts/activate
+```
+
+Activate the .venv virtual environment in PowerShell
+
+```shell
+.venv\Scripts\Activate.ps1
+```
+
+---
+
+
+### 4. Install the Python environment
 
 The project uses `uv` for dependency and virtual-environment management.
 
@@ -144,24 +165,6 @@ This will:
 - Install project dependencies
 - Install development dependencies
 - Use `uv.lock` for reproducible dependency versions
-
----
-
-### 3. Activate the virtual environment
-
-#### Git Bash
-
-```bash
-source .venv/Scripts/activate
-```
-
-#### PowerShell
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-Activation is optional when using `uv run`, because `uv` automatically executes commands inside the project environment.
 
 ---
 

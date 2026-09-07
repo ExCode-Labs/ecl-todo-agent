@@ -1,14 +1,16 @@
 from fastapi.testclient import TestClient
 
+from todo_agent.config.settings import settings
 from todo_agent.main import app
 
 client = TestClient(app)
 
 
 def test_welcome() -> None:
-    response = client.get("/")
+    response = client.get("/health")
 
     assert response.status_code == 200
     assert response.json() == {
-        "message": "Welcome to Todo Agent API",
+        "status": "ok",
+        "service": settings.app_name,
     }
